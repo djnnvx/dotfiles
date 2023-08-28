@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# misc term
+alias cls="clear"
+
+# fast cd
+alias c='cd /home/${USER}/.config'
+
+# prettier outputs by default
+alias ls="ls -CF --group-directories-first --color=auto"
+alias df="df -ahiT --total"
+alias mkdir="mkdir -p"
+alias ps="ps auxf"
+alias wget="wget -c"
+alias grep='grep --color=auto'
+alias bc="bc -q"
+alias mkd='mkdir -p'
+
+# git
+alias gits="git status"
+alias gita="git add"
+alias gitrb='git rebase -i --gpg-sign=wontsleep@protonmail.com'
+alias gitcl="git clone --recurse-submodules"
+alias gitc="git commit -S"
+alias gitcm="git commit -S -m"
+alias gitch="git checkout"
+alias gitsh="git shortlog"
+alias gitl="git log --oneline --color --graph"
+alias gitb="git branch"
+alias gitp="git push"
+alias gitf="git fetch"
+alias gitsw='git switch'
+
+# fuzzy finder
+alias ff="rg . | fzf | cut -d ':' -f 1"
+alias search="find . | fzf"
+
+# random
+alias myip="curl http://ipecho.net/plain; echo"
+alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+alias v='vim'
+alias vim='nvim'
+alias clpc='find . -type d -name "__pycache__" -delete -o -type f -name "*.pyc" -delete'
+alias p='sudo pacman'
+
+# most used
+alias sdn="shutdown -h now"
+
+# C stuff
+alias vg="valgrind -v --leak-check=full --show-leak-kinds=all --log-file=valgrind.txt"
+alias cf="find . -regex '.*\.\(c\|h\)' -exec clang-format -style=file -i {} \;"
+
+# Haskell stuff
+alias ghcid='ghcid --reload=./app --color=always'

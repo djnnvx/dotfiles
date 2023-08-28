@@ -1,0 +1,16 @@
+[user]
+	email = wontsleep@protonmail.com
+	name = winds0r
+	signingkey = A43B3C34B2FF11CF
+[pull]
+	rebase = false
+[push]
+    autoSetupRemote = true
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = true
+[tag]
+	gpgsign = true
+[core]
+	pager = less -

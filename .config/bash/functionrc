@@ -1,0 +1,42 @@
+#!/bin/bash
+#~ useful bash functions
+
+# Creates an archive (*.tar.gz) from given directory.
+function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+
+# Create a ZIP archive of a file or folder.
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+function pwgn { tr -dc '[:alpha:]' < /dev/urandom | fold -w "${1:-32}" | head -n 1 ; }
+
+envup () {
+    if [ -f "${1}" ]; then
+        set -o allexport
+        export $(grep -v '#.*' ${1} | tr -d "\r" | xargs)
+        set +o allexport
+    else echo "Could not find ${1}"
+    fi
+}
+
+upd () {
+
+    sudo pacman -Syu
+
+    # go install github.com/Gelio/go-global-update@latest 2>/dev/null
+    go-global-update
+
+    pipx upgrade-all
+
+    gem update `gem outdated | cut -d ' ' -f 1`
+
+    # cargo install cargo-update
+    cargo install-update -a
+}
+
+ffn () {
+    if [ -z "${1}" ]; then
+        echo "Please specify filename"
+    else
+        find / -type f -name "${1}" 2>/dev/null
+    fi
+}

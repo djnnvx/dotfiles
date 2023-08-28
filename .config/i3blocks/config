@@ -1,0 +1,91 @@
+# For the benefit of emacs users: -*- shell-script -*-
+#
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+align=center
+separator=false
+color=#c0b18b
+separator_block_width=15
+markup=pango
+
+[battery]
+command=acpi
+interval=2
+color=#ff5555
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[wifi]
+command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
+instance=wlp3s0
+interval=5
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[mediaplayer]
+command=playerctl metadata --format "{{ artist }} <span color=\"#bd93f9\">-</span> {{ title }}"
+interval=2
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[cpu_stats]
+command=load_average | sed -sn 2p
+interval=10
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[temperature]
+command=temperature 2>/dev/null | sed -sn 2p
+label=TEMP
+interval=10
+T_WARN=70
+T_CRIT=90
+#SENSOR_CHIP=""
+
+[memory]
+command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#ff79c6\">GiB</span>\n", $7 }'
+interval=2
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[volume]
+command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
+interval=1
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[date]
+command= date '+%A %d %B %Y %r' | awk '{ printf "%s<span color=\"#ff5555\"> %s %s </span>%s<span color=\"#ff5555\"> %s </span><span color=\"#ff5555\"> %s </span>\n", $1, $2, $3, $4, $5, $6 }'
+interval=60
+label=<span color="#ff5555"> </span>
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
