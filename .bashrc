@@ -22,8 +22,8 @@ export TERM=xterm-256color
 # set PATH so it includes user's private bin directories
 PATH="$HOME/.local/bin:$PATH:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
-## ASDF-VM things
-. ~/.asdf/asdf.sh
+## ASDF-VM things (optional i guess)
+# . ~/.asdf/asdf.sh
 
 # set dark mode for GTK
 export GTK_THEME=Adwaita:dark
