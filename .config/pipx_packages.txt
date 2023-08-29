@@ -1,0 +1,6 @@
+arjun
+arsenal-cli
+dirsearch
+holehe
+name-that-hash
+pwntools

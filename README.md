@@ -10,6 +10,9 @@ This is meant to be used with Archlinux:
 # install the packages
 sudo pacman -S - < ./.config/basic_packages.txt
 
+# install pipx packages
+cat ./.config/pipx_packages | xargs -n 1 pipx install
+
 # copy everything to ~
 mv -v .config ~
 mv -v .bashrc ~
