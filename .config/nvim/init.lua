@@ -8,6 +8,10 @@
 -- ]]
 
 
+-- SET ASDF PROVIDERS FIRST
+vim.g['python3_host_prog'] = '~/.asdf/shims/python3'
+vim.g['node_host_prog'] = '~/.asdf/shims/node'
+
 require('plugins')
 require('opts')
 require('maps')

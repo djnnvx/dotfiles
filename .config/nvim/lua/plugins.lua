@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     -- LSP
     -- enable LSP
     use "neovim/nvim-lspconfig"
+    use "williamboman/mason-lspconfig.nvim"
 
     use {
         'VonHeikemen/lsp-zero.nvim',

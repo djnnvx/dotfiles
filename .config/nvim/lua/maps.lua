@@ -3,6 +3,19 @@ local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = ' '
 
+-- Define a function to append " # type: ignore" to the current line
+function AppendTypeIgnore()
+
+ -- Get the current line number
+  local line_number = vim.fn.line(".")
+
+  -- Get the current line content
+  local line_content = vim.fn.getline(line_number)
+
+  -- Append the text to the current line without a line break
+  vim.fn.setline(line_number, line_content .. "  # type: ignore")
+end
+
 -- Normal mode mappings
 map('n', '<leader>z', ':vnew<CR>e .<CR>', opts)
 map('n', '<leader><BACKSPACE>', ':bd<CR>', opts)
@@ -33,6 +46,7 @@ map('n', '<leader>pv', ':wincmd v<bar> :Ex <CR>', opts)
 map('n', '<silent> <Leader>=', ':vertical resize +5<CR>', opts)
 map('n', '<silent> <Leader>-', ':vertical resize -5<CR>', opts)
 
+vim.api.nvim_set_keymap('n', '<leader>nn', [[:lua AppendTypeIgnore()<CR>]], { noremap = true, silent = true })
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
