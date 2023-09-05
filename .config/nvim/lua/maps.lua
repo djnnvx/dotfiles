@@ -16,6 +16,7 @@ function AppendTypeIgnore()
   vim.fn.setline(line_number, line_content .. "  # type: ignore")
 end
 
+
 -- Normal mode mappings
 map('n', '<leader>z', ':vnew<CR>e .<CR>', opts)
 map('n', '<leader><BACKSPACE>', ':bd<CR>', opts)
