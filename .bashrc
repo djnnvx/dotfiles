@@ -18,12 +18,11 @@ export TERM=xterm-256color
 [[ -f ~/.config/bash/promptrc ]]      &&  source ~/.config/bash/promptrc
 
 
+# flyctl stuff
+export FLYCTL_INSTALL="$HOME/.fly"
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/.local/bin:$PATH:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
-
-## ASDF-VM things (optional i guess)
-# . ~/.asdf/asdf.sh
+PATH="$HOME/.local/bin:$PATH:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$FLYCTL_INSTALL/bin"
 
 # set dark mode for GTK
 export GTK_THEME=Adwaita:dark

@@ -44,6 +44,9 @@ alias clpc='find . -type d -name "__pycache__" -delete -o -type f -name "*.pyc" 
 alias p='sudo pacman'
 alias gols="history | grep 'go install' | grep -v ' history ' | grep -v ' cargo ' | rev | cut -d' ' -f 1 | rev"
 
+alias lup='sudo light -A 10'
+alias ldown='sudo light -U 10'
+
 # most used
 alias sdn="shutdown -h now"
 

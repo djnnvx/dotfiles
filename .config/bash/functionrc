@@ -40,3 +40,7 @@ ffn () {
         find / -type f -name "${1}" 2>/dev/null
     fi
 }
+
+di() {
+    docker exec -it "$(docker ps | fzf --tac --height ${FZF_TMUX_HEIGHT:-40%} | awk '{print $1}')" /bin/sh
+}
