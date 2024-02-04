@@ -20,14 +20,14 @@ envup () {
 
 upd () {
 
-    sudo pacman -Syu
+    sudo apt update && sudo apt -y upgrade
 
     # go install github.com/Gelio/go-global-update@latest 2>/dev/null
     go-global-update
 
-    pipx upgrade-all
+    # pipx upgrade-all
 
-    gem update `gem outdated | cut -d ' ' -f 1`
+    # gem update `gem outdated | cut -d ' ' -f 1`
 
     # cargo install cargo-update
     cargo install-update -a

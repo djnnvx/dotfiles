@@ -36,19 +36,15 @@ alias ff="rg . | fzf | cut -d ':' -f 1"
 alias search="find . | fzf"
 
 # random
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip="/usr/bin/curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias v='vim'
 alias vim='nvim'
 alias clpc='find . -type d -name "__pycache__" -delete -o -type f -name "*.pyc" -delete'
-alias p='sudo pacman'
 alias gols="history | grep 'go install' | grep -v ' history ' | grep -v ' cargo ' | rev | cut -d' ' -f 1 | rev"
 
-alias lup='sudo light -A 10'
-alias ldown='sudo light -U 10'
-
 # most used
-alias sdn="shutdown -h now"
+alias sdn="sudo shutdown -h now"
 
 # C stuff
 alias vg="valgrind -v --leak-check=full --show-leak-kinds=all --log-file=valgrind.txt"
@@ -56,3 +52,11 @@ alias cf="find . -regex '.*\.\(c\|h\)' -exec clang-format -style=file -i {} \;"
 
 # Haskell stuff
 alias ghcid='ghcid --reload=./app --color=always'
+
+# tailscale stuff
+alias tsup='sudo tailscale up'
+alias tsdn='sudo tailscale down'
+alias ts-upd='sudo tailscale update'
+
+# docker compose
+alias dc='docker compose'
