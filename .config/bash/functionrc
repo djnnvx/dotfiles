@@ -44,3 +44,7 @@ ffn () {
 di() {
     docker exec -it "$(docker ps | fzf --tac --height ${FZF_TMUX_HEIGHT:-40%} | awk '{print $1}')" /bin/sh
 }
+
+get_new_ssh_ips () {
+    zgrep sshd /var/log/auth.log* -h |grep -F 'Accepted' | sed -re 's/.*from ([^ ]+).*/\1/' | sort -u
+}
